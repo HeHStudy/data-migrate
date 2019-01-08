@@ -49,6 +49,7 @@ module DataMigrate
       end
 
       def assure_data_schema_table
+        puts "> assure_data_schema_table"
         ActiveRecord::Base.establish_connection(db_config)
         sm_table = DataMigrate::DataMigrator.schema_migrations_table_name
 
@@ -69,6 +70,7 @@ module DataMigrate
       private
 
       def create_table(sm_table)
+        puts ">>>> CREATE #{sm_table} FROM DATA MIGRATION!!!"
         ActiveRecord::Base.connection.create_table(sm_table, id: false) do |schema_migrations_table|
           schema_migrations_table.column :version, :string, null: false
         end
