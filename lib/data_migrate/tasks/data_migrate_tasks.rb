@@ -7,6 +7,8 @@ module DataMigrate
       end
 
       def migrate
+      puts ">>>> MIGRATE FROM DATA MIGRATION!!! BOOO"
+
         DataMigrate::DataMigrator.assure_data_schema_table
         target_version = ENV["VERSION"] ? ENV["VERSION"].to_i : nil
         if Rails::VERSION::MAJOR == 5 && Rails::VERSION::MINOR == 2

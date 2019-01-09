@@ -5,7 +5,6 @@ namespace :db do
     desc "Migrate the database data and schema (options: VERSION=x, VERBOSE=false)."
     task :with_data => :environment do
       assure_data_schema_table
-      puts ">>>> FROM DATA MIGRATION!!! BOOO"
 
       ActiveRecord::Migration.verbose = ENV["VERBOSE"] ? ENV["VERBOSE"] == "true" : true
       target_version = ENV["VERSION"] ? ENV["VERSION"].to_i : nil
